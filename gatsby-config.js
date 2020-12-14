@@ -3,13 +3,12 @@ const siteMetadata = require("./config/metadata");
 module.exports = {
   siteMetadata,
   plugins: [
-    
     "gatsby-plugin-react-helmet",
 
     {
       resolve: `gatsby-plugin-styled-components`,
       options: {
-        displayName: process.env.NODE_ENV !== 'production'
+        displayName: process.env.NODE_ENV !== "production",
       },
     },
     {
@@ -24,6 +23,13 @@ module.exports = {
         isTSX: true,
         jsxPragma: `jsx`,
         allExtensions: true,
+      },
+    },
+    {
+      resolve: `gatsby-plugin-page-creator`,
+      options: {
+        path: `${__dirname}/src/pages`,
+        ignore: [`**/styles.js`],
       },
     },
   ],
